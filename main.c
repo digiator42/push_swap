@@ -3,5 +3,6 @@
 int main(int ac, char **av)
 {
 	if(!parsing(ac, av))
-		return(0);
+		write(2, "Error\n", 6);
+	// printf("atoi max %d", ft_atoi("2147483647"));
 }
