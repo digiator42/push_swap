@@ -1,3 +1,5 @@
 a.out
 *.o
 push_swap
+.vscode
+.DS_Store
