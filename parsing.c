@@ -74,10 +74,12 @@ int parsing(int ac, char **av)
 	if (!is_valid_num(av) || !is_not_dup(av) || !is_not_max(av))
 		return 0;
 	i = 0;
-	first = ft_lstnew(ft_atoi(*av));
+	first = ft_lstnew(ft_atoi(*av++));
 	while(*av)
 		ft_lstadd_back(&first, ft_lstnew(ft_atoi(*av++)));
-	while(first)
+	while(first){
+		printf("%d ", first->value);
 		first = first->next;
+	}
 	return 1;
 }
