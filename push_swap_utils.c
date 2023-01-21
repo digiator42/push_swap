@@ -75,7 +75,7 @@ char	*ft_strjoin(char *str, char *av)
 	if (!str)
 	{
 		str = (char *)ft_calloc(sizeof(char), 1);
-		str[0] = '\0';
+		// str[0] = '\0';
 	}
 	if (!av)
 		return (NULL);

@@ -58,6 +58,7 @@ int is_not_max(char **strs)
 
 int parsing(int ac, char **av)
 {
+	t_list *first = NULL;
 	static char *str;
 	int i;
 	if(ac <= 1)
@@ -68,12 +69,17 @@ int parsing(int ac, char **av)
 	av = ft_split(str, ' ');
 	int j = 0;
 	while (j < i - 1)
-	{
-		if(av[j] == NULL)
+		if(av[j++] == NULL)
 			return 0;
-		j++;
-	}
 	if (!is_valid_num(av) || !is_not_dup(av) || !is_not_max(av))
 		return 0;
+	i = 0;
+	first = ft_lstnew(ft_atoi(av[i++]));
+	while(i < j)
+		ft_lstadd_back(&first, ft_lstnew(ft_atoi(av[i++])));
+	while(first){
+		printf("val -> %d\n", (first)->value);
+		first = first->next;
+	}
 	return 1;
 }
