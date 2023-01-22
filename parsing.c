@@ -39,7 +39,6 @@ int is_not_dup(char **strs)
 int	ft_atoi_max(char *str)
 {
 	long int num = ft_atoi(str);
-	// printf("num %ld", num);
 	if(num > INT_MAX || num < INT_MIN)
 		return 0;	
 	return 1;
