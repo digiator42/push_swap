@@ -74,9 +74,12 @@ int parsing(int ac, char **av)
 	stack_a = ft_lstnew(ft_atoi(*av++));
 	while(*av)
 		ft_lstadd_back(&stack_a, ft_lstnew(ft_atoi(*av++)));
-	print_stack(stack_a);
+	// print_stack(stack_a);
+	swap_stack(&stack_a, 'a');
 	if(is_sorted(stack_a))
 		printf("sorted!");
+	printf("fist %d, second %d\n", stack_a->value, stack_a->next->value)	;
+	print_stack(stack_a);
 	free(stack_a);
 	return 1;
 }
