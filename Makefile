@@ -3,6 +3,7 @@ NAME = push_swap
 SRCS = main.c				\
        parsing.c			\
 	   push_swap_utils.c	\
+	   stack_utils.c		\
 	   ft_split.c			\
 	   ft_lstnew.c			\
 	   ft_lstadd_back.c		\
