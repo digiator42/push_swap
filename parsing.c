@@ -11,12 +11,14 @@ int	is_valid_num(char **av)
 		i = 0;
 		while (av[j][i])
 		{
-			if ((av[j][0] == '+' || av[j][0] == '-' ) && i == 0)
-				i++;
+			if(i == 0)
+				if ((av[j][0] == '+' || av[j][0] == '-' ))
+					i++;
 			if (av[j][i] >= '0' && av[j][i] <= '9')
 				i++;
-			else
+			else{
 				return (0);
+			}
 		}
 		j++;
 	}
@@ -75,10 +77,12 @@ int parsing(int ac, char **av)
 	while(*av)
 		ft_lstadd_back(&stack_a, ft_lstnew(ft_atoi(*av++)));
 	// print_stack(stack_a);
-	swap_stack(&stack_a, 'a');
 	if(is_sorted(stack_a))
-		printf("sorted!");
-	printf("fist %d, second %d\n", stack_a->value, stack_a->next->value)	;
+		printf("sorted!\n");
+	else{	
+		swap_stack(&stack_a, 'a');
+		printf("fist %d, second %d\n", stack_a->value, stack_a->next->value);
+	}
 	print_stack(stack_a);
 	free(stack_a);
 	return 1;
