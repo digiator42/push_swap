@@ -48,10 +48,8 @@ int is_not_max(char **strs)
 {
 	int i = -1;
 	while(strs[++i])
-	{
 		if(!ft_atoi_max(strs[i]))
 			return 0;
-	}
 	return 1;
 }
 
@@ -77,6 +75,8 @@ int parsing(int ac, char **av)
 	while(*av)
 		ft_lstadd_back(&stack_a, ft_lstnew(ft_atoi(*av++)));
 	print_stack(stack_a);
+	if(is_sorted(stack_a))
+		printf("sorted!");
 	free(stack_a);
 	return 1;
 }

@@ -19,5 +19,7 @@ t_list	*ft_lstnew(int content);
 void	ft_lstadd_back(t_list **lst, t_list *new);
 t_list	*ft_lstlast(t_list *lst);
 void print_stack(t_list *stack);
+int is_sorted(t_list *stack);
+
 
 #endif

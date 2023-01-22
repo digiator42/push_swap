@@ -4,6 +4,6 @@
 int main(int ac, char **av)
 {
 	if(!parsing(ac, av))
-		write(2, "Error\n", 6);
+		write(2, "\x1B[31mError\n", 12);
 	
 }

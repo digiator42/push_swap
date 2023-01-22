@@ -5,6 +5,7 @@ SRCS = main.c				\
 	   push_swap_utils.c	\
 	   stack_utils.c		\
 	   ft_split.c			\
+	   ops.c				\
 	   ft_lstnew.c			\
 	   ft_lstadd_back.c		\
 	   ft_lstlast.c			\
