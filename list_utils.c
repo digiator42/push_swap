@@ -34,17 +34,17 @@ t_list	*ft_lstlast(t_list *lst)
 	return (lst);
 }
 
-void	ft_lstadd_back(t_list **alst, t_list *new)
+void	ft_lstadd_back(t_list **lst, t_list *new)
 {
 	t_list	*tmp;
 
-	if (*alst)
+	if (*lst)
 	{
-		if (*alst == NULL)
-			*alst = new;
+		if (*lst == NULL)
+			*lst = new;
 		else
 		{
-			tmp = ft_lstlast((*alst));
+			tmp = ft_lstlast((*lst));
 			tmp->next = new;
 		}
 	}
