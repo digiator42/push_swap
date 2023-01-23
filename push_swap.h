@@ -25,6 +25,7 @@ void	ft_lstadd_front(t_list **lst, t_list *new);
 void print_stack(t_list *stack);
 int is_sorted(t_list *stack);
 void swap_stack(t_list **stack, char stk);
+void pa(t_list **a, t_list **b);
 
 
 #endif

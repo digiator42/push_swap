@@ -14,8 +14,7 @@ void swap_stack(t_list **stack, char stk)
 
 void pa(t_list **a, t_list **b)
 {
-	int value = (*a)->value;
-	ft_lstadd_front(b, ft_lstnew(value));
+	ft_lstadd_front(b, ft_lstnew((*a)->value));
 	(*a) = (*a)->next;
 }
 
@@ -38,7 +37,7 @@ void pa(t_list **a, t_list **b)
 
 // 	print_stack(lst);
 // 	print_stack(lst2);
-// 	pa(&lst, &lst2);
+// 	pb_move(&lst, &lst2);
 // 	print_stack(lst);
 // 	print_stack(lst2);
 // }

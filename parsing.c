@@ -58,6 +58,7 @@ int is_not_max(char **strs)
 int parsing(int ac, char **av)
 {
 	t_list *stack_a = NULL;
+	t_list *stack_b = NULL;
 	static char *str;
 	int i;
 	if(ac <= 1)
@@ -79,6 +80,9 @@ int parsing(int ac, char **av)
 	if(is_sorted(stack_a))
 		printf("sorted!\n");
 	print_stack(stack_a);
+	pa(&stack_a, &stack_b);
+	print_stack(stack_a);
+	print_stack(stack_b);
 	free(stack_a);
 	return 1;
 }
