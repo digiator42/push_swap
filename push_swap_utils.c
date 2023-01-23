@@ -16,6 +16,26 @@ size_t	ft_strlen(const char *c)
 	return (i);
 }
 
+int	ft_strcmp(char *s1, char *s2)
+{
+	int i;
+
+	i = 0;
+	while (s1[i] == s2[i] && s1[i] != '\0' && s2[i] != '\0')
+		i++;
+	return (s1[i] - s2[i]);
+}
+
+int is_space(char *str)
+{
+	int i = 0;
+	while (str[i] == ' ' || (str[i] >= 8 && str[i] <= 14))
+		i++;
+	if(str[i] == '\0')
+		return 0;
+	return 1;		
+}
+
 long int ft_atoi(char *str)
 {
 	int	i;
@@ -26,7 +46,7 @@ long int ft_atoi(char *str)
 	res = 0;
 	sign = 1;
 	while (str[i] == ' ' || (str[i] >= 8 && str[i] <= 14))
-		i++;
+		i++;	
 	if (str[i] == '-' || str[i] == '+')
 		if (str[i++] == '-')
 			sign *= -1;

@@ -62,27 +62,22 @@ int parsing(int ac, char **av)
 	int i;
 	if(ac <= 1)
 		return 0;
+	int j = 0;
+	while (++j < ac)
+		if(!ft_strcmp(av[j], "") || !is_space(av[j]))
+			return 0;
 	i = 1;
 	while (av[i])
 		str = ft_strjoin(str, av[i++]);
 	av = ft_split(str, ' ');
-	int j = 0;
-	while (j < i - 1)
-		if(av[j++] == NULL)
-			return 0;
 	if (!is_valid_num(av) || !is_not_dup(av) || !is_not_max(av))
 		return 0;
 	i = 0;
 	stack_a = ft_lstnew(ft_atoi(*av++));
 	while(*av)
 		ft_lstadd_back(&stack_a, ft_lstnew(ft_atoi(*av++)));
-	// print_stack(stack_a);
 	if(is_sorted(stack_a))
 		printf("sorted!\n");
-	else{	
-		swap_stack(&stack_a, 'a');
-		printf("fist %d, second %d\n", stack_a->value, stack_a->next->value);
-	}
 	print_stack(stack_a);
 	free(stack_a);
 	return 1;

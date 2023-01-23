@@ -2,6 +2,7 @@
 # define PUSH_SWAP_H
 
 #include <stdio.h>
+#include <string.h>
 #include <stdlib.h>
 #include <unistd.h>
 #include <limits.h>
@@ -14,6 +15,8 @@ typedef struct s_list{
 int	parsing(int ac, char **av);
 long int	ft_atoi(char *ptr);
 char	*ft_strjoin(char *str, char *av);
+int is_space(char *str);
+int	ft_strcmp(char *s1, char *s2);
 char	**ft_split(char *s, char c);
 t_list	*ft_lstnew(int content);
 void	ft_lstadd_back(t_list **lst, t_list *new);
