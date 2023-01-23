@@ -21,6 +21,7 @@ char	**ft_split(char *s, char c);
 t_list	*ft_lstnew(int content);
 void	ft_lstadd_back(t_list **lst, t_list *new);
 t_list	*ft_lstlast(t_list *lst);
+void	ft_lstadd_front(t_list **lst, t_list *new);
 void print_stack(t_list *stack);
 int is_sorted(t_list *stack);
 void swap_stack(t_list **stack, char stk);

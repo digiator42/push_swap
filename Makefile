@@ -3,12 +3,10 @@ NAME = push_swap
 SRCS = main.c				\
        parsing.c			\
 	   push_swap_utils.c	\
+	   list_utils.c			\
 	   stack_utils.c		\
 	   ft_split.c			\
 	   ops.c				\
-	   ft_lstnew.c			\
-	   ft_lstadd_back.c		\
-	   ft_lstlast.c			\
 	   
 OBJS = $(SRCS:.c=.o)
 
