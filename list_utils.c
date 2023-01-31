@@ -13,7 +13,7 @@ void	ft_lstadd_front(t_list **lst, t_list *new)
 	*lst = new;
 }
 
-t_list	*ft_lstnew(int content)
+t_list	*ft_lstnew(int content, int index)
 {
 	t_list	*new;
 
@@ -21,6 +21,7 @@ t_list	*ft_lstnew(int content)
 	if (!new)
 		return (0);
 	new->value = content;
+	new->index = index;
 	new->next = NULL;
 	return (new);
 }

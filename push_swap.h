@@ -19,7 +19,7 @@ char	*ft_strjoin(char *str, char *av);
 int is_space(char *str);
 int	ft_strcmp(char *s1, char *s2);
 char	**ft_split(char *s, char c);
-t_list	*ft_lstnew(int content);
+t_list	*ft_lstnew(int content, int index);
 void	ft_lstadd_back(t_list **lst, t_list *new);
 t_list	*ft_lstlast(t_list *lst);
 void	ft_lstadd_front(t_list **lst, t_list *new);

@@ -3,9 +3,13 @@
 void swap_stk(t_list **stack, int stk)
 {
 	int tmp;
+	int index;
 	tmp = (*stack)->value;
+	index = (*stack)->index;
 	(*stack)->value = (*stack)->next->value;
 	(*stack)->next->value = tmp;
+	(*stack)->index = (*stack)->next->index;
+	(*stack)->next->index = index;
 	if(stk == 1)
 		printf("sa\n");
 	else	
@@ -14,7 +18,7 @@ void swap_stk(t_list **stack, int stk)
 
 void push_stk(t_list **fix, t_list **push, int stk)
 {
-	ft_lstadd_front(fix, ft_lstnew((*push)->value));
+	ft_lstadd_front(fix, ft_lstnew((*push)->value, (*push)->index));
 	(*push) = (*push)->next;
 	if(stk == 1)
 		printf("pa\n");
@@ -26,7 +30,7 @@ void r_stk(t_list **s, int stk)
 {
 	if(!(*s))
 		return ;
-	ft_lstadd_back(s, ft_lstnew((*s)->value));
+	ft_lstadd_back(s, ft_lstnew((*s)->value, (*s)->index));
 	(*s) = (*s)->next;
 	if(stk == 1)
 		printf("ra\n");

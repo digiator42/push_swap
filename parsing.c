@@ -55,7 +55,7 @@ int is_not_max(char **strs)
 	return 1;
 }
 
-void	get_index(t_list **list)
+void	fill_indexes(t_list **list)
 {
 	int		i;
 	t_list	*tmp;
@@ -81,7 +81,7 @@ void	get_index(t_list **list)
 int parsing(int ac, char **av)
 {
 	t_list *stack_a = NULL;
-	// t_list *stack_b = NULL;
+	t_list *stack_b = NULL;
 	static char *str;
 	int i;
 	if(ac <= 1)
@@ -96,15 +96,18 @@ int parsing(int ac, char **av)
 	av = ft_split(str, ' ');
 	if (!is_valid_num(av) || !is_not_dup(av) || !is_not_max(av))
 		return 0;
-	stack_a = ft_lstnew(ft_atoi(*av++));
+	stack_a = ft_lstnew(ft_atoi(*av++), 0);
 	while(*av)
-		ft_lstadd_back(&stack_a, ft_lstnew(ft_atoi(*av++)));
+		ft_lstadd_back(&stack_a, ft_lstnew(ft_atoi(*av++), 0));
 	if(is_sorted(stack_a))
-		printf("sorted!\n");
+		return printf("sorted!\n");
+	fill_indexes(&stack_a);
 	print_stack(stack_a);
-	get_index(&stack_a);
+	push_stk(&stack_b, &stack_a, 0);
 	print_stack(stack_a);
-	free(stack_a);
+	print_stack(stack_b);
+	r_stk(&stack_a, 1);
+	print_stack(stack_a);
 	return 1;
 }
 
