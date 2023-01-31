@@ -55,10 +55,33 @@ int is_not_max(char **strs)
 	return 1;
 }
 
+void	get_index(t_list **list)
+{
+	int		i;
+	t_list	*tmp;
+	t_list	*tmp2;
+
+	i = 0;
+	tmp = (*list);
+	while (tmp)
+	{
+		i = 0;
+		tmp2 = (*list);
+		while (tmp2)
+		{
+			if (tmp->value > tmp2->value)
+				i++;
+			tmp2 = tmp2->next;
+		}
+		tmp->index = i;
+		tmp = tmp->next;
+	}
+}
+
 int parsing(int ac, char **av)
 {
 	t_list *stack_a = NULL;
-	t_list *stack_b = NULL;
+	// t_list *stack_b = NULL;
 	static char *str;
 	int i;
 	if(ac <= 1)
@@ -78,23 +101,30 @@ int parsing(int ac, char **av)
 		ft_lstadd_back(&stack_a, ft_lstnew(ft_atoi(*av++)));
 	if(is_sorted(stack_a))
 		printf("sorted!\n");
-	print_stack(stack_a);	
-	printf("swapping--------\n");
-	swap_stk(&stack_a, 1);
-	print_stack(stack_a);	
-	printf("pushing b--------\n");
-	push_stk(&stack_b, &stack_a, 0);
 	print_stack(stack_a);
-	print_stack(stack_b);	
-	printf("pushing a--------\n");
-	push_stk(&stack_a, &stack_b, 1);
-	print_stack(stack_a);	
-	print_stack(stack_b);
-	printf("rotat a--------\n");
-	r_stk(&stack_a, 1);
-	r_stk(&stack_a, 1);
+	get_index(&stack_a);
 	print_stack(stack_a);
-	print_stack(stack_b);
 	free(stack_a);
 	return 1;
 }
+
+	// printf("swapping--------\n");
+	// swap_stk(&stack_a, 1);
+	// print_stack(stack_a);	
+	// printf("pushing b--------\n");
+	// push_stk(&stack_b, &stack_a, 0);
+	// push_stk(&stack_b, &stack_a, 0);
+	// push_stk(&stack_b, &stack_a, 0);
+	// print_stack(stack_b);	
+	// swap_stk(&stack_b, 0);
+	// print_stack(stack_a);
+	// print_stack(stack_b);	
+	// printf("pushing a--------\n");
+	// push_stk(&stack_a, &stack_b, 1);
+	// print_stack(stack_a);	
+	// print_stack(stack_b);
+	// printf("rotat a--------\n");
+	// r_stk(&stack_a, 1);
+	// r_stk(&stack_a, 1);
+	// print_stack(stack_a);
+	// print_stack(stack_b);
