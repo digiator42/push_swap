@@ -73,14 +73,26 @@ int parsing(int ac, char **av)
 	av = ft_split(str, ' ');
 	if (!is_valid_num(av) || !is_not_dup(av) || !is_not_max(av))
 		return 0;
-	i = 0;
 	stack_a = ft_lstnew(ft_atoi(*av++));
 	while(*av)
 		ft_lstadd_back(&stack_a, ft_lstnew(ft_atoi(*av++)));
 	if(is_sorted(stack_a))
 		printf("sorted!\n");
+	print_stack(stack_a);	
+	printf("swapping--------\n");
+	swap_stk(&stack_a, 1);
+	print_stack(stack_a);	
+	printf("pushing b--------\n");
+	push_stk(&stack_b, &stack_a, 0);
 	print_stack(stack_a);
-	pa(&stack_a, &stack_b);
+	print_stack(stack_b);	
+	printf("pushing a--------\n");
+	push_stk(&stack_a, &stack_b, 1);
+	print_stack(stack_a);	
+	print_stack(stack_b);
+	printf("rotat a--------\n");
+	r_stk(&stack_a, 1);
+	r_stk(&stack_a, 1);
 	print_stack(stack_a);
 	print_stack(stack_b);
 	free(stack_a);

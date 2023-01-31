@@ -1,22 +1,39 @@
 #include "push_swap.h"
 
-void swap_stack(t_list **stack, char stk)
+void swap_stk(t_list **stack, int stk)
 {
 	int tmp;
 	tmp = (*stack)->value;
 	(*stack)->value = (*stack)->next->value;
 	(*stack)->next->value = tmp;
-	if(stk == 'a')
+	if(stk == 1)
 		printf("sa\n");
 	else	
 		printf("sb\n");
 }
 
-void pa(t_list **a, t_list **b)
+void push_stk(t_list **fix, t_list **push, int stk)
 {
-	ft_lstadd_front(b, ft_lstnew((*a)->value));
-	(*a) = (*a)->next;
+	ft_lstadd_front(fix, ft_lstnew((*push)->value));
+	(*push) = (*push)->next;
+	if(stk == 1)
+		printf("pa\n");
+	else	
+		printf("pb\n");
 }
+
+void r_stk(t_list **s, int stk)
+{
+	if(!(*s))
+		return ;
+	ft_lstadd_back(s, ft_lstnew((*s)->value));
+	(*s) = (*s)->next;
+	if(stk == 1)
+		printf("ra\n");
+	else	
+		printf("rb\n");
+}
+
 
 // int main()
 // {

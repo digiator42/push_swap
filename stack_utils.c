@@ -15,6 +15,8 @@ void print_stack(t_list *stack)
 
 int is_sorted(t_list *stack)
 {
+	if(stack == NULL || stack->next == NULL)
+		return 0;
 	while(stack->next)
 	{
 		if(stack->value > stack->next->value)
