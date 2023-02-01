@@ -10,7 +10,7 @@ SRCS = main.c				\
 	   
 OBJS = $(SRCS:.c=.o)
 
-CC = gcc
+CC = cc
 
 CFLAGS = -g3 -Wall -Wextra -Werror -fsanitize=address
 
