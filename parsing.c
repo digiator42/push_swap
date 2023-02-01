@@ -106,8 +106,9 @@ int parsing(int ac, char **av)
 	push_stk(&stack_b, &stack_a, 0);
 	print_stack(stack_a);
 	print_stack(stack_b);
-	r_stk(&stack_a, 1);
+	r_stk(&stack_b, 1);
 	print_stack(stack_a);
+	print_stack(stack_b);
 	return 1;
 }
 

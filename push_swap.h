@@ -28,4 +28,5 @@ int is_sorted(t_list *stack);
 void swap_stk(t_list **stack, int stk);
 void push_stk(t_list **fix, t_list **push, int stk);
 void r_stk(t_list **s, int stk);
+void rr_stk(t_list **s, int stk);
 #endif

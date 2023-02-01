@@ -38,6 +38,28 @@ void r_stk(t_list **s, int stk)
 		printf("rb\n");
 }
 
+void rr_stk(t_list **s, int stk)
+{
+	t_list *b_last;
+	t_list *last;
+	
+	if(!(*s) || !((*s)->next))
+		return ;
+	last = *s;
+	while(last->next){
+		b_last = last;
+		last = last->next;
+	}
+	b_last->next = NULL;
+	// last->next = *s;
+	// *s = last;
+	ft_lstadd_front(s, last);
+	if(stk == 1)
+		printf("rra\n");
+	else	
+		printf("rrb\n");
+}
+
 
 // int main()
 // {
@@ -46,19 +68,19 @@ void r_stk(t_list **s, int stk)
 // 	t_list *tmp;
 // 	t_list *tmp2;
 // 	int c[] = {1, 2, 3, 4};
-// 	lst = ft_lstnew(c[i++]);
-// 	while (i < 4)
-// 		ft_lstadd_back(&lst, ft_lstnew(c[i++]));
+// 	size_t len = sizeof(c) / sizeof(c[0]);
+// 	int j = 0;
+// 	lst = ft_lstnew(c[i++], j++);
+// 	while (i < len)
+// 		ft_lstadd_back(&lst, ft_lstnew(c[i++], j++));
 // 	i = 0;	
 // 	t_list *lst2;
 // 	int c2[] = {5, 6, 7, 8};
-// 	lst2 = ft_lstnew(c2[i++]);
-// 	while (i < 4)
-// 		ft_lstadd_back(&lst2, ft_lstnew(c2[i++]));
+// 	j = 0;
+// 	lst2 = ft_lstnew(c2[i++], j++);
+// 	while (i < len)
+// 		ft_lstadd_back(&lst2, ft_lstnew(c2[i++], j++));
 
-// 	print_stack(lst);
-// 	print_stack(lst2);
-// 	pb_move(&lst, &lst2);
 // 	print_stack(lst);
 // 	print_stack(lst2);
 // }

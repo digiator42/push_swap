@@ -7,6 +7,7 @@ void print_stack(t_list *stack)
 	while(stack)
 	{
 		printf("|%d - %d|", stack->value, stack->index);
+		// sleep(1);
 		stack = stack->next;
 	}
 	stack = tmp;
