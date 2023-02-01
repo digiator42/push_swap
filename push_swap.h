@@ -13,7 +13,10 @@ typedef struct s_list{
 	struct s_list *next;
 } t_list;
 
+void	sort_wise(t_list **stack_a, int len);
 int	parsing(int ac, char **av);
+void	fill_indexes(t_list **list);
+void push_and_sort(t_list **stack_a, t_list **stack_b);
 long int	ft_atoi(char *ptr);
 char	*ft_strjoin(char *str, char *av);
 int is_space(char *str);
@@ -24,6 +27,7 @@ void	ft_lstadd_back(t_list **lst, t_list *new);
 t_list	*ft_lstlast(t_list *lst);
 void	ft_lstadd_front(t_list **lst, t_list *new);
 t_list	*ft_b_node(t_list *lst, t_list **b_last);
+int	ft_lstsize(t_list *lst);
 void print_stack(t_list *stack);
 int is_sorted(t_list *stack);
 void swap_stk(t_list **stack, int stk);

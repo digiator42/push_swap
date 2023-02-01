@@ -95,16 +95,15 @@ int parsing(int ac, char **av)
 	av = ft_split(str, ' ');
 	if (!is_valid_num(av) || !is_not_dup(av) || !is_not_max(av))
 		return 0;
-	i = 0;	
+	i = 0;
 	stack_a = ft_lstnew(ft_atoi(av[i]), i);
 	while(av[++i])
 		ft_lstadd_back(&stack_a, ft_lstnew(ft_atoi(av[i]), i));
 	free(av);	
-	print_stack(stack_a);
 	if(is_sorted(stack_a))
 		return printf("sorted!\n");
 	fill_indexes(&stack_a);
-	print_stack(stack_a);
+	sort_wise(&stack_a, i);
 	return (1);
 }
 
