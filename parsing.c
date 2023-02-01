@@ -103,11 +103,12 @@ int parsing(int ac, char **av)
 		return printf("sorted!\n");
 	fill_indexes(&stack_a);
 	print_stack(stack_a);
-	push_stk(&stack_b, &stack_a, 0);
-	push_stk(&stack_b, &stack_a, 0);
+	print_stack(stack_b);
+	push_stk(&stack_a, &stack_b, 2);
+	rrr(&stack_a, &stack_b);
 	print_stack(stack_a);
 	print_stack(stack_b);
-	rrr(&stack_a, &stack_b);
+	ss(&stack_a, &stack_b);
 	print_stack(stack_a);
 	print_stack(stack_b);
 	return 1;
