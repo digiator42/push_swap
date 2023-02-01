@@ -30,8 +30,21 @@ t_list	*ft_lstlast(t_list *lst)
 {
 	if (!lst)
 		return (0);
-	while (lst->next)
+	while (lst->next){
 		lst = lst->next;
+	}
+	return (lst);
+}
+
+t_list	*ft_b_node(t_list *lst, t_list **b_last)
+{
+	if (!lst)
+		return (0);
+	while (lst->next){
+		b_last = &lst;
+		lst = lst->next;
+	}
+	(*b_last)->next = NULL;
 	return (lst);
 }
 

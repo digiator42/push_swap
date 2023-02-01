@@ -44,7 +44,7 @@ void r_stk(t_list **s, int stk)
 
 void rr_stk(t_list **s, int stk)
 {
-	t_list *b_last;
+	t_list *b_last = NULL;
 	t_list *last;
 	
 	if(!(*s) || !((*s)->next))

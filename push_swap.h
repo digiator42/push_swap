@@ -23,6 +23,7 @@ t_list	*ft_lstnew(int content, int index);
 void	ft_lstadd_back(t_list **lst, t_list *new);
 t_list	*ft_lstlast(t_list *lst);
 void	ft_lstadd_front(t_list **lst, t_list *new);
+t_list	*ft_b_node(t_list *lst, t_list **b_last);
 void print_stack(t_list *stack);
 int is_sorted(t_list *stack);
 void swap_stk(t_list **stack, int stk);

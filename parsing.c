@@ -81,7 +81,6 @@ void	fill_indexes(t_list **list)
 int parsing(int ac, char **av)
 {
 	t_list *stack_a = NULL;
-	t_list *stack_b = NULL;
 	static char *str;
 	int i;
 	if(ac <= 1)
@@ -96,22 +95,17 @@ int parsing(int ac, char **av)
 	av = ft_split(str, ' ');
 	if (!is_valid_num(av) || !is_not_dup(av) || !is_not_max(av))
 		return 0;
-	stack_a = ft_lstnew(ft_atoi(*av++), 0);
-	while(*av)
-		ft_lstadd_back(&stack_a, ft_lstnew(ft_atoi(*av++), 0));
+	i = 0;	
+	stack_a = ft_lstnew(ft_atoi(av[i]), i);
+	while(av[++i])
+		ft_lstadd_back(&stack_a, ft_lstnew(ft_atoi(av[i]), i));
+	free(av);	
+	print_stack(stack_a);
 	if(is_sorted(stack_a))
 		return printf("sorted!\n");
 	fill_indexes(&stack_a);
 	print_stack(stack_a);
-	print_stack(stack_b);
-	push_stk(&stack_a, &stack_b, 2);
-	rrr(&stack_a, &stack_b);
-	print_stack(stack_a);
-	print_stack(stack_b);
-	ss(&stack_a, &stack_b);
-	print_stack(stack_a);
-	print_stack(stack_b);
-	return 1;
+	return (1);
 }
 
 	// printf("swapping--------\n");
