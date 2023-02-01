@@ -29,4 +29,7 @@ void swap_stk(t_list **stack, int stk);
 void push_stk(t_list **fix, t_list **push, int stk);
 void r_stk(t_list **s, int stk);
 void rr_stk(t_list **s, int stk);
+void ss(t_list **stack_a, t_list **stack_b);
+void rr(t_list **stack_a, t_list **stack_b);
+void rrr(t_list **stack_a, t_list **stack_b);
 #endif

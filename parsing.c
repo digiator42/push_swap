@@ -104,9 +104,10 @@ int parsing(int ac, char **av)
 	fill_indexes(&stack_a);
 	print_stack(stack_a);
 	push_stk(&stack_b, &stack_a, 0);
+	push_stk(&stack_b, &stack_a, 0);
 	print_stack(stack_a);
 	print_stack(stack_b);
-	r_stk(&stack_b, 1);
+	rrr(&stack_a, &stack_b);
 	print_stack(stack_a);
 	print_stack(stack_b);
 	return 1;

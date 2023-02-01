@@ -12,7 +12,7 @@ void swap_stk(t_list **stack, int stk)
 	(*stack)->next->index = index;
 	if(stk == 1)
 		printf("sa\n");
-	else	
+	if(stk == 2)	
 		printf("sb\n");
 }
 
@@ -22,7 +22,7 @@ void push_stk(t_list **fix, t_list **push, int stk)
 	(*push) = (*push)->next;
 	if(stk == 1)
 		printf("pa\n");
-	else	
+	if(stk == 2)	
 		printf("pb\n");
 }
 
@@ -34,7 +34,7 @@ void r_stk(t_list **s, int stk)
 	(*s) = (*s)->next;
 	if(stk == 1)
 		printf("ra\n");
-	else	
+	if(stk == 2)	
 		printf("rb\n");
 }
 
@@ -56,8 +56,29 @@ void rr_stk(t_list **s, int stk)
 	ft_lstadd_front(s, last);
 	if(stk == 1)
 		printf("rra\n");
-	else	
+	if(stk == 2)	
 		printf("rrb\n");
+}
+
+void ss(t_list **stack_a, t_list **stack_b)
+{
+	swap_stk(stack_a, 0);
+	swap_stk(stack_b, 0);
+	printf("ss\n");
+}
+
+void rr(t_list **stack_a, t_list **stack_b)
+{
+	r_stk(stack_a, 0);
+	r_stk(stack_b, 0);
+	printf("rr\n");
+}
+
+void rrr(t_list **stack_a, t_list **stack_b)
+{
+	rr_stk(stack_a, 0);
+	rr_stk(stack_b, 0);
+	printf("rrr\n");
 }
 
 
