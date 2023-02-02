@@ -107,45 +107,32 @@ void sort_five(t_list **stack_a, t_list **stack_b)
 	}
 }
 
-void	sort_few(t_list **stack_a, t_list **stack_b)
+void	sort_few(t_list **stack_a, t_list **stack_b, int len)
 {
 	int smallest = find_index(*stack_a);
-	int size = ft_lstsize(*stack_a);
-	if(smallest <= size / 4)
+	if(smallest <= len / 4)
 	{
 		if((*stack_a)->index == 0)
 		{
 			push_stk(stack_b, stack_a, 2);
-			size = ft_lstsize(*stack_a);
 			fill_indexes(stack_a);
 		}
 		else
-		{	
 			r_stk(stack_a, 1);
-			size = ft_lstsize(*stack_a);
-		}
-		fill_indexes(stack_a);
 	}
 	else
 	{
-		fill_indexes(stack_a);
-		// smallest = find_index(*stack_a);
 		if(ft_lstlast(*stack_a)->index == 0)
 		{
 			rr_stk(stack_a, 1);
 			push_stk(stack_b, stack_a, 2);
-			size = ft_lstsize(*stack_a);
 			fill_indexes(stack_a);
-			// smallest = find_index(*stack_a);
 		}
 		else
 		{
 			rr_stk(stack_a, 1);
 			fill_indexes(stack_a);
-			// smallest = find_index(*stack_a);
 		}
-		size = ft_lstsize(*stack_a);
-		fill_indexes(stack_a);
 	}
 }
 
@@ -166,7 +153,7 @@ void	sort_wise(t_list **stack_a, int len)
 	{
 		while (ft_lstsize(*stack_a) > 0)
 		{
-			sort_few(stack_a, &stack_b);
+			sort_few(stack_a, &stack_b, len);
 			if (is_sorted(*stack_a))
 				break ;
 		}
