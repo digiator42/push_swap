@@ -110,32 +110,42 @@ void sort_five(t_list **stack_a, t_list **stack_b)
 void	sort_few(t_list **stack_a, t_list **stack_b)
 {
 	int smallest = find_index(*stack_a);
-	if(smallest <= ft_lstsize(*stack_a) / 4)
+	int size = ft_lstsize(*stack_a);
+	if(smallest <= size / 4)
 	{
-		if((*stack_a)->index == smallest)
+		if((*stack_a)->index == 0)
 		{
 			push_stk(stack_b, stack_a, 2);
+			size = ft_lstsize(*stack_a);
 			fill_indexes(stack_a);
 		}
 		else
 		{	
 			r_stk(stack_a, 1);
-			smallest = find_index(*stack_a);
+			size = ft_lstsize(*stack_a);
 		}
+		fill_indexes(stack_a);
 	}
 	else
 	{
-		if(ft_lstlast(*stack_a)->index == smallest)
+		fill_indexes(stack_a);
+		// smallest = find_index(*stack_a);
+		if(ft_lstlast(*stack_a)->index == 0)
 		{
 			rr_stk(stack_a, 1);
 			push_stk(stack_b, stack_a, 2);
+			size = ft_lstsize(*stack_a);
 			fill_indexes(stack_a);
+			// smallest = find_index(*stack_a);
 		}
 		else
 		{
 			rr_stk(stack_a, 1);
-			smallest = find_index(*stack_a);
+			fill_indexes(stack_a);
+			// smallest = find_index(*stack_a);
 		}
+		size = ft_lstsize(*stack_a);
+		fill_indexes(stack_a);
 	}
 }
 
@@ -152,9 +162,9 @@ void	sort_wise(t_list **stack_a, int len)
 		sort_four(stack_a, &stack_b);
 	if(len == 5)
 		sort_five(stack_a, &stack_b);
-	else if (len < 100)
+	else if (len < 60)
 	{
-		while (1)
+		while (ft_lstsize(*stack_a) > 0)
 		{
 			sort_few(stack_a, &stack_b);
 			if (is_sorted(*stack_a))
@@ -163,5 +173,5 @@ void	sort_wise(t_list **stack_a, int len)
 		while (stack_b)
 			push_stk(stack_a, &stack_b, 2);
 	}	
-	// print_stack(*stack_a);	
+	print_stack(*stack_a);	
 }
