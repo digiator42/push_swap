@@ -58,6 +58,7 @@ void rr_stk(t_list **s, int stk)
 	// last->next = *s;
 	// *s = last;
 	ft_lstadd_front(s, last);
+	fill_indexes(s);
 	if(stk == 1)
 		printf("rra\n");
 	if(stk == 2)	

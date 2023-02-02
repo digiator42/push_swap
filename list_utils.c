@@ -49,16 +49,16 @@ t_list	*ft_lstlast(t_list *lst)
 	return (lst);
 }
 
-t_list	*ft_b_node(t_list *lst, t_list **b_last)
+t_list	*ft_b_node(t_list *lst)
 {
+	t_list *b_last;
 	if (!lst)
 		return (0);
 	while (lst->next){
-		b_last = &lst;
+		b_last = lst;
 		lst = lst->next;
 	}
-	(*b_last)->next = NULL;
-	return (lst);
+	return (b_last);
 }
 
 void	ft_lstadd_back(t_list **lst, t_list *new)

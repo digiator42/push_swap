@@ -9,7 +9,7 @@
 
 typedef struct s_list{
 	int value;
-	unsigned int index;
+	int index;
 	struct s_list *next;
 } t_list;
 
@@ -26,7 +26,7 @@ t_list	*ft_lstnew(int content, int index);
 void	ft_lstadd_back(t_list **lst, t_list *new);
 t_list	*ft_lstlast(t_list *lst);
 void	ft_lstadd_front(t_list **lst, t_list *new);
-t_list	*ft_b_node(t_list *lst, t_list **b_last);
+t_list	*ft_b_node(t_list *lst);
 int	ft_lstsize(t_list *lst);
 void print_stack(t_list *stack);
 int is_sorted(t_list *stack);
