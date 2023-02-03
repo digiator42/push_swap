@@ -113,8 +113,6 @@ void sort_min(t_list **stack_a, t_list **stack_b, int len)
 		sort_four(stack_a, stack_b);
 	if(len == 5)
 		sort_five(stack_a, stack_b);
-	ft_free_stack(stack_a);	
-	ft_free_stack(stack_b);	
 }
 
 void	sort_few(t_list **stack_a, t_list **stack_b, int len)
@@ -177,10 +175,12 @@ void	sort_wise(t_list **stack_a, int len)
 	{
 		while (!is_sorted(*stack_a))
 		{
+			len = ft_lstsize(*stack_a);
 			sort_bunch(stack_a, &stack_b, len);
 			while (stack_b)
 				push_stk(stack_a, &stack_b, 1);
 		}
 	}
-	print_stack(*stack_a);	
+	// print_stack(*stack_a);
+	
 }

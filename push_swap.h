@@ -17,7 +17,7 @@ void	sort_wise(t_list **stack_a, int len);
 int	parsing(int ac, char **av);
 void	fill_indexes(t_list **list);
 void ft_free_av(char **av);
-void ft_free_stack(t_list **stack);
+void ft_free_stack(t_list *head);
 void push_and_sort(t_list **stack_a, t_list **stack_b);
 long int	ft_atoi(char *ptr);
 char	*ft_strjoin(char *str, char *av);

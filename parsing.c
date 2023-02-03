@@ -86,13 +86,17 @@ void ft_free_av(char **av)
 	free(av);	
 }
 
-void ft_free_stack(t_list **stack)
+void ft_free_stack(t_list *head)
 {
-	while(*stack)
-	{
-		free(*stack);
-		(*stack) = (*stack)->next;
-	}
+   t_list *tmp;
+
+   while (head != NULL)
+    {
+       tmp = head;
+       head = head->next;
+       free(tmp);
+    }
+
 }
 
 int parsing(int ac, char **av)
@@ -101,7 +105,7 @@ int parsing(int ac, char **av)
 	static char *str;
 	int i;
 	if(ac <= 1)
-		return 0;
+		return -1;
 	int j = 0;
 	while (++j < ac)
 		if(!ft_strcmp(av[j], "") || !is_space(av[j]))
@@ -111,19 +115,20 @@ int parsing(int ac, char **av)
 		str = ft_strjoin(str, av[i++]);
 	av = ft_split(str, ' ');
 	free(str);
-	if(!av[1])
-		return (free(av[0]), free(av), -1);
+	// if(!av[1])
+	// 	return (free(av[0]), free(av), -1);
 	if (!is_valid_num(av) || !is_not_dup(av) || !is_not_max(av))
-		return 0;
+		return (ft_free_av(av), 0);
 	i = 0;
 	stack_a = ft_lstnew(ft_atoi(av[i]), i);
 	while(av[++i])
 		ft_lstadd_back(&stack_a, ft_lstnew(ft_atoi(av[i]), i));
 	ft_free_av(av);	
 	if(is_sorted(stack_a))
-		return (ft_free_stack(&stack_a), printf("sorted!\n"));
+		return (ft_free_stack(stack_a), printf("sorted!\n"));
 	fill_indexes(&stack_a);
 	sort_wise(&stack_a, i);
+	ft_free_stack(stack_a);
 	return (1);
 }
 

@@ -22,8 +22,10 @@ void push_stk(t_list **fix, t_list **push, int stk)
 {
 	if(!(*push))
 		return ;
+	t_list *tmp = (*push);
 	ft_lstadd_front(fix, ft_lstnew((*push)->value, (*push)->index));
 	(*push) = (*push)->next;
+	free(tmp);
 	if(stk == 1)
 		printf("pa\n");
 	if(stk == 2)	
@@ -34,8 +36,10 @@ void r_stk(t_list **s, int stk)
 {
 	if(!(*s))
 		return ;
+	t_list *tmp = (*s);	
 	ft_lstadd_back(s, ft_lstnew((*s)->value, (*s)->index));
 	(*s) = (*s)->next;
+	free(tmp);
 	if(stk == 1)
 		printf("ra\n");
 	if(stk == 2)	
@@ -107,6 +111,11 @@ void rrr(t_list **stack_a, t_list **stack_b)
 // 	while (i < len)
 // 		ft_lstadd_back(&lst2, ft_lstnew(c2[i++], j++));
 
-// 	print_stack(lst);
 // 	print_stack(lst2);
+// 	printf("\n");
+// 	print_stack(lst);
+// 	push_stk(&lst, &lst2, 1);
+// 	print_stack(lst2);
+// 	printf("\n");
+// 	print_stack(lst);
 // }
