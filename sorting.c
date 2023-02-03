@@ -107,6 +107,20 @@ void sort_five(t_list **stack_a, t_list **stack_b)
 	}
 }
 
+void sort_min(t_list **stack_a, t_list **stack_b, int len)
+{
+	if(len == 1)
+		return ;
+	if(len == 2)
+		swap_stk(stack_a, 1);
+	if(len == 3)
+		sort_three(stack_a);
+	if(len == 4)
+		sort_four(stack_a, stack_b);
+	if(len == 5)
+		sort_five(stack_a, stack_b);
+}
+
 void	sort_few(t_list **stack_a, t_list **stack_b, int len)
 {
 	int smallest = find_index(*stack_a);
@@ -154,16 +168,8 @@ void sort_bunch(t_list **stack_a, t_list **stack_b, int len)
 void	sort_wise(t_list **stack_a, int len)
 {
 	t_list *stack_b = NULL;
-	if(len == 1)
-		return ;
-	if(len == 2)
-		swap_stk(stack_a, 1);
-	if(len == 3)
-		sort_three(stack_a);
-	if(len == 4)
-		sort_four(stack_a, &stack_b);
-	if(len == 5)
-		sort_five(stack_a, &stack_b);
+	if(len >= 1 && len <= 5)
+		sort_min(stack_a, &stack_b, len);
 	else if (len <= 50)
 	{
 		while (!is_sorted(*stack_a))
