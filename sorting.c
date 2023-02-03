@@ -129,10 +129,25 @@ void	sort_few(t_list **stack_a, t_list **stack_b, int len)
 			fill_indexes(stack_a);
 		}
 		else
-		{
 			rr_stk(stack_a, 1);
-			fill_indexes(stack_a);
+	}
+}
+
+void sort_bunch(t_list **stack_a, t_list **stack_b, int len)
+{
+	while (len)
+	{
+		if ((*stack_a)->index % 2 == 1)
+		{	
+			(*stack_a)->index /= 2;
+			r_stk(stack_a, 1);
 		}
+		else if ((*stack_a)->index % 2 == 0)
+		{	
+			(*stack_a)->index /= 2;
+			push_stk(stack_b, stack_a, 2);
+		}
+		len--;
 	}
 }
 
@@ -149,16 +164,21 @@ void	sort_wise(t_list **stack_a, int len)
 		sort_four(stack_a, &stack_b);
 	if(len == 5)
 		sort_five(stack_a, &stack_b);
-	else if (len < 60)
+	else if (len <= 50)
 	{
-		while (ft_lstsize(*stack_a) > 0)
-		{
+		while (!is_sorted(*stack_a))
 			sort_few(stack_a, &stack_b, len);
-			if (is_sorted(*stack_a))
-				break ;
-		}
 		while (stack_b)
 			push_stk(stack_a, &stack_b, 2);
-	}	
-	print_stack(*stack_a);	
+	}
+	else
+	{
+		while (!is_sorted(*stack_a))
+		{
+			sort_bunch(stack_a, &stack_b, len);
+			while (stack_b)
+				push_stk(stack_a, &stack_b, 2);
+		}
+	}
+	// print_stack(*stack_a);	
 }

@@ -11,7 +11,6 @@ void print_stack(t_list *stack)
 		stack = stack->next;
 	}
 	stack = tmp;
-	printf("\n");
 }
 
 int is_sorted(t_list *stack)
