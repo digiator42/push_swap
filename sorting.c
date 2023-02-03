@@ -19,17 +19,13 @@ void sort_three(t_list **stack_a)
 		r_stk(stack_a, 1);
 	}
 	else if((*stack_a)->index == 1 && (*stack_a)->next->index == 2)
-	{
 		rr_stk(stack_a, 1);
-	}
 }
 
 int find_index(t_list *lst)
 {
-	int	len;
 	int	i;
 
-	len = ft_lstsize(lst);
 	i = 0;
 	while (lst)
 	{
@@ -109,8 +105,6 @@ void sort_five(t_list **stack_a, t_list **stack_b)
 
 void sort_min(t_list **stack_a, t_list **stack_b, int len)
 {
-	if(len == 1)
-		return ;
 	if(len == 2)
 		swap_stk(stack_a, 1);
 	if(len == 3)
@@ -119,6 +113,8 @@ void sort_min(t_list **stack_a, t_list **stack_b, int len)
 		sort_four(stack_a, stack_b);
 	if(len == 5)
 		sort_five(stack_a, stack_b);
+	ft_free_stack(stack_a);	
+	ft_free_stack(stack_b);	
 }
 
 void	sort_few(t_list **stack_a, t_list **stack_b, int len)
@@ -175,7 +171,7 @@ void	sort_wise(t_list **stack_a, int len)
 		while (!is_sorted(*stack_a))
 			sort_few(stack_a, &stack_b, len);
 		while (stack_b)
-			push_stk(stack_a, &stack_b, 2);
+			push_stk(stack_a, &stack_b, 1);
 	}
 	else
 	{
@@ -183,8 +179,8 @@ void	sort_wise(t_list **stack_a, int len)
 		{
 			sort_bunch(stack_a, &stack_b, len);
 			while (stack_b)
-				push_stk(stack_a, &stack_b, 2);
+				push_stk(stack_a, &stack_b, 1);
 		}
 	}
-	// print_stack(*stack_a);	
+	print_stack(*stack_a);	
 }

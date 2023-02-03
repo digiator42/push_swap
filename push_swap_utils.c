@@ -105,8 +105,7 @@ char	*ft_strjoin(char *str, char *av)
 		joined[j++] = av[i++];
 	joined[j] = ' ';
 	joined[j+1] = '\0';
-	if(str[0])
-		free(str);
+	free(str);
 	str = NULL;
 	return (joined);
 }

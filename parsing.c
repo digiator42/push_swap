@@ -78,6 +78,23 @@ void	fill_indexes(t_list **list)
 	}
 }
 
+void ft_free_av(char **av)
+{
+	int i = 0;
+	while (av[i])
+		free(av[i++]);
+	free(av);	
+}
+
+void ft_free_stack(t_list **stack)
+{
+	while(*stack)
+	{
+		free(*stack);
+		(*stack) = (*stack)->next;
+	}
+}
+
 int parsing(int ac, char **av)
 {
 	t_list *stack_a = NULL;
@@ -93,15 +110,18 @@ int parsing(int ac, char **av)
 	while (av[i])
 		str = ft_strjoin(str, av[i++]);
 	av = ft_split(str, ' ');
+	free(str);
+	if(!av[1])
+		return (free(av[0]), free(av), -1);
 	if (!is_valid_num(av) || !is_not_dup(av) || !is_not_max(av))
 		return 0;
 	i = 0;
 	stack_a = ft_lstnew(ft_atoi(av[i]), i);
 	while(av[++i])
 		ft_lstadd_back(&stack_a, ft_lstnew(ft_atoi(av[i]), i));
-	free(av);	
+	ft_free_av(av);	
 	if(is_sorted(stack_a))
-		return printf("sorted!\n");
+		return (ft_free_stack(&stack_a), printf("sorted!\n"));
 	fill_indexes(&stack_a);
 	sort_wise(&stack_a, i);
 	return (1);
