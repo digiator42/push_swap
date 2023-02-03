@@ -7,7 +7,7 @@ SRCS = main.c				\
 	   push_swap_utils.c	\
 	   list_utils.c			\
 	   stack_utils.c		\
-	   ft_split.c			\
+	   utils.c				\
 	   ops.c				\
 	   
 OBJS = $(SRCS:.c=.o)

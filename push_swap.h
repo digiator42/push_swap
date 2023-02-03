@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_swap.h                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ahassan <ahassan@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/02/03 22:50:10 by ahassan           #+#    #+#             */
+/*   Updated: 2023/02/03 23:14:10 by ahassan          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
@@ -14,6 +26,8 @@ typedef struct s_list{
 } t_list;
 
 int add_stack(char **av);
+int	is_space(char *str);
+int	ft_strcmp(char *s1, char *s2);
 void	sort_wise(t_list **stack_a, int len);
 int 	parsing(int ac, char **av);
 void	fill_indexes(t_list **list);

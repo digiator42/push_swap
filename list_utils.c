@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   list_utils.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ahassan <ahassan@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/02/03 22:50:07 by ahassan           #+#    #+#             */
+/*   Updated: 2023/02/03 23:03:33 by ahassan          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 void	ft_lstadd_front(t_list **lst, t_list *new)
@@ -43,22 +55,11 @@ t_list	*ft_lstlast(t_list *lst)
 {
 	if (!lst)
 		return (0);
-	while (lst->next){
+	while (lst->next)
+	{
 		lst = lst->next;
 	}
 	return (lst);
-}
-
-t_list	*ft_b_node(t_list *lst)
-{
-	t_list *b_last;
-	if (!lst)
-		return (0);
-	while (lst->next){
-		b_last = lst;
-		lst = lst->next;
-	}
-	return (b_last);
 }
 
 void	ft_lstadd_back(t_list **lst, t_list *new)

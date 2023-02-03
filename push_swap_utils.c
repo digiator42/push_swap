@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_swap_utils.c                                  :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ahassan <ahassan@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/02/03 22:51:14 by ahassan           #+#    #+#             */
+/*   Updated: 2023/02/03 23:13:05 by ahassan          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 size_t	ft_strlen(const char *c)
@@ -5,7 +17,6 @@ size_t	ft_strlen(const char *c)
 	size_t	i;
 
 	i = 0;
-
 	if (c)
 	{
 		while (c[i] != '\0')
@@ -16,37 +27,17 @@ size_t	ft_strlen(const char *c)
 	return (i);
 }
 
-int	ft_strcmp(char *s1, char *s2)
+long int	ft_atoi(char *str)
 {
-	int i;
-
-	i = 0;
-	while (s1[i] == s2[i] && s1[i] != '\0' && s2[i] != '\0')
-		i++;
-	return (s1[i] - s2[i]);
-}
-
-int is_space(char *str)
-{
-	int i = 0;
-	while (str[i] == ' ' || (str[i] >= 8 && str[i] <= 14))
-		i++;
-	if(str[i] == '\0')
-		return 0;
-	return 1;		
-}
-
-long int ft_atoi(char *str)
-{
-	int	i;
-	int sign;
+	int			i;
+	int			sign;
 	long int	res;
 
 	i = 0;
 	res = 0;
 	sign = 1;
 	while (str[i] == ' ' || (str[i] >= 8 && str[i] <= 14))
-		i++;	
+		i++;
 	if (str[i] == '-' || str[i] == '+')
 		if (str[i++] == '-')
 			sign *= -1;
@@ -104,7 +95,7 @@ char	*ft_strjoin(char *str, char *av)
 	while (av[i])
 		joined[j++] = av[i++];
 	joined[j] = ' ';
-	joined[j+1] = '\0';
+	joined[j + 1] = '\0';
 	free(str);
 	str = NULL;
 	return (joined);
