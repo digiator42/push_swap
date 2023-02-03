@@ -181,6 +181,4 @@ void	sort_wise(t_list **stack_a, int len)
 				push_stk(stack_a, &stack_b, 1);
 		}
 	}
-	// print_stack(*stack_a);
-	
 }

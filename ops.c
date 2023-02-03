@@ -89,33 +89,3 @@ void rrr(t_list **stack_a, t_list **stack_b)
 	rr_stk(stack_b, 0);
 	printf("rrr\n");
 }
-
-
-// int main()
-// {
-// 	int i = 0;
-// 	t_list *lst;
-// 	t_list *tmp;
-// 	t_list *tmp2;
-// 	int c[] = {1, 2, 3, 4};
-// 	size_t len = sizeof(c) / sizeof(c[0]);
-// 	int j = 0;
-// 	lst = ft_lstnew(c[i++], j++);
-// 	while (i < len)
-// 		ft_lstadd_back(&lst, ft_lstnew(c[i++], j++));
-// 	i = 0;	
-// 	t_list *lst2;
-// 	int c2[] = {5, 6, 7, 8};
-// 	j = 0;
-// 	lst2 = ft_lstnew(c2[i++], j++);
-// 	while (i < len)
-// 		ft_lstadd_back(&lst2, ft_lstnew(c2[i++], j++));
-
-// 	print_stack(lst2);
-// 	printf("\n");
-// 	print_stack(lst);
-// 	push_stk(&lst, &lst2, 1);
-// 	print_stack(lst2);
-// 	printf("\n");
-// 	print_stack(lst);
-// }

@@ -13,8 +13,9 @@ typedef struct s_list{
 	struct s_list *next;
 } t_list;
 
+int add_stack(char **av);
 void	sort_wise(t_list **stack_a, int len);
-int	parsing(int ac, char **av);
+int 	parsing(int ac, char **av);
 void	fill_indexes(t_list **list);
 void ft_free_av(char **av);
 void ft_free_stack(t_list *head);

@@ -101,54 +101,22 @@ void ft_free_stack(t_list *head)
 
 int parsing(int ac, char **av)
 {
-	t_list *stack_a = NULL;
 	static char *str;
 	int i;
 	if(ac <= 1)
 		return -1;
-	int j = 0;
-	while (++j < ac)
-		if(!ft_strcmp(av[j], "") || !is_space(av[j]))
+	i = 0;
+	while (++i < ac)
+		if(!ft_strcmp(av[i], "") || !is_space(av[i]))
 			return 0;
 	i = 1;
 	while (av[i])
 		str = ft_strjoin(str, av[i++]);
 	av = ft_split(str, ' ');
 	free(str);
-	// if(!av[1])
-	// 	return (free(av[0]), free(av), -1);
 	if (!is_valid_num(av) || !is_not_dup(av) || !is_not_max(av))
 		return (ft_free_av(av), 0);
-	i = 0;
-	stack_a = ft_lstnew(ft_atoi(av[i]), i);
-	while(av[++i])
-		ft_lstadd_back(&stack_a, ft_lstnew(ft_atoi(av[i]), i));
-	ft_free_av(av);	
-	if(is_sorted(stack_a))
-		return (ft_free_stack(stack_a), printf("sorted!\n"));
-	fill_indexes(&stack_a);
-	sort_wise(&stack_a, i);
-	ft_free_stack(stack_a);
+	if(add_stack(av))
+		return 1;	
 	return (1);
 }
-
-	// printf("swapping--------\n");
-	// swap_stk(&stack_a, 1);
-	// print_stack(stack_a);	
-	// printf("pushing b--------\n");
-	// push_stk(&stack_b, &stack_a, 0);
-	// push_stk(&stack_b, &stack_a, 0);
-	// push_stk(&stack_b, &stack_a, 0);
-	// print_stack(stack_b);	
-	// swap_stk(&stack_b, 0);
-	// print_stack(stack_a);
-	// print_stack(stack_b);	
-	// printf("pushing a--------\n");
-	// push_stk(&stack_a, &stack_b, 1);
-	// print_stack(stack_a);	
-	// print_stack(stack_b);
-	// printf("rotat a--------\n");
-	// r_stk(&stack_a, 1);
-	// r_stk(&stack_a, 1);
-	// print_stack(stack_a);
-	// print_stack(stack_b);
