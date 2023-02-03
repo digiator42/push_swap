@@ -3,6 +3,7 @@ NAME = push_swap
 SRCS = main.c				\
        parsing.c			\
 	   sorting.c			\
+	   sort_hlpr.c			\
 	   push_swap_utils.c	\
 	   list_utils.c			\
 	   stack_utils.c		\
