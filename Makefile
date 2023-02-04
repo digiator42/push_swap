@@ -1,4 +1,4 @@
-NAME = push_swap
+NAME = push_swap.a
 
 SRCS = main.c				\
        parsing.c			\
@@ -9,17 +9,26 @@ SRCS = main.c				\
 	   stack_utils.c		\
 	   utils.c				\
 	   ops.c				\
-	   
+	   ft_printf/ft_format.c	        \
+	   ft_printf/ft_printpointer.c	\
+	   ft_printf/ft_putchar.c	        \
+	   ft_printf/ft_putstr.c	        \
+	   ft_printf/ft_printf.c	        \
+	   ft_printf/ft_printhex.c	    \
+	   ft_printf/ft_printunsigned.c	\
+	   ft_printf/ft_putnbr.c	
+
 OBJS = $(SRCS:.c=.o)
 
 CC = cc
 
-CFLAGS = -g3 -Wall -Wextra -Werror -fsanitize=address
+CFLAGS = -Wall -Wextra -Werror
 
 all : $(NAME)
 
 $(NAME): $(OBJS)
-	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
+	ar -rc $(NAME) $(OBJS)
+	$(CC) $(CFLAGS) $(NAME) -o $(NAME)
 
 clean:
 	rm -f $(OBJS)
