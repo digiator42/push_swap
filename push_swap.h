@@ -6,7 +6,7 @@
 /*   By: ahassan <ahassan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/03 22:50:10 by ahassan           #+#    #+#             */
-/*   Updated: 2023/02/04 13:21:12 by ahassan          ###   ########.fr       */
+/*   Updated: 2023/02/04 13:53:23 by ahassan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # include <stdlib.h>
 # include <string.h>
 # include <unistd.h>
+# include "ft_printf/ft_printf.h"
 
 typedef struct s_list
 {

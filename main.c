@@ -6,7 +6,7 @@
 /*   By: ahassan <ahassan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/03 22:49:58 by ahassan           #+#    #+#             */
-/*   Updated: 2023/02/03 23:03:39 by ahassan          ###   ########.fr       */
+/*   Updated: 2023/02/04 13:54:05 by ahassan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ int	add_stack(char **av)
 		ft_lstadd_back(&stack_a, ft_lstnew(ft_atoi(av[i]), i));
 	ft_free_av(av);
 	if (is_sorted(stack_a))
-		return (ft_free_stack(stack_a), printf("sorted!\n"));
+		return (ft_free_stack(stack_a), ft_printf("sorted!\n"));
 	fill_indexes(&stack_a);
 	sort_wise(&stack_a, i);
 	ft_free_stack(stack_a);
@@ -70,5 +70,5 @@ int	add_stack(char **av)
 int	main(int ac, char **av)
 {
 	if (!parsing(ac, av))
-		write(2, "\x1B[31mError\n", 12);
+		ft_printf("\x1B[31mError\n");
 }

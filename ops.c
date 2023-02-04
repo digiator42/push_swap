@@ -6,7 +6,7 @@
 /*   By: ahassan <ahassan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/03 22:51:03 by ahassan           #+#    #+#             */
-/*   Updated: 2023/02/03 23:04:33 by ahassan          ###   ########.fr       */
+/*   Updated: 2023/02/04 13:54:37 by ahassan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,9 @@ void	swap_stk(t_list **stack, int stk)
 	(*stack)->index = (*stack)->next->index;
 	(*stack)->next->index = index;
 	if (stk == 1)
-		printf("sa\n");
+		ft_printf("sa\n");
 	if (stk == 2)
-		printf("sb\n");
+		ft_printf("sb\n");
 }
 
 void	push_stk(t_list **fix, t_list **push, int stk)
@@ -42,9 +42,9 @@ void	push_stk(t_list **fix, t_list **push, int stk)
 	(*push) = (*push)->next;
 	free(tmp);
 	if (stk == 1)
-		printf("pa\n");
+		ft_printf("pa\n");
 	if (stk == 2)
-		printf("pb\n");
+		ft_printf("pb\n");
 }
 
 void	r_stk(t_list **s, int stk)
@@ -58,9 +58,9 @@ void	r_stk(t_list **s, int stk)
 	(*s) = (*s)->next;
 	free(tmp);
 	if (stk == 1)
-		printf("ra\n");
+		ft_printf("ra\n");
 	if (stk == 2)
-		printf("rb\n");
+		ft_printf("rb\n");
 }
 
 void	rr_stk(t_list **s, int stk)
@@ -81,7 +81,7 @@ void	rr_stk(t_list **s, int stk)
 	ft_lstadd_front(s, last);
 	fill_indexes(s);
 	if (stk == 1)
-		printf("rra\n");
+		ft_printf("rra\n");
 	if (stk == 2)
-		printf("rrb\n");
+		ft_printf("rrb\n");
 }

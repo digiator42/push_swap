@@ -6,7 +6,7 @@
 /*   By: ahassan <ahassan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/03 22:50:04 by ahassan           #+#    #+#             */
-/*   Updated: 2023/02/03 23:09:31 by ahassan          ###   ########.fr       */
+/*   Updated: 2023/02/04 13:55:02 by ahassan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	print_stack(t_list *stack)
 	tmp = stack;
 	while (stack)
 	{
-		printf("|%d  -  %d|\n", stack->value, stack->index);
+		ft_printf("|%d  -  %d|\n", stack->value, stack->index);
 		stack = stack->next;
 	}
 	stack = tmp;
