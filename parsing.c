@@ -6,11 +6,21 @@
 /*   By: ahassan <ahassan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/03 22:51:09 by ahassan           #+#    #+#             */
-/*   Updated: 2023/02/03 23:07:04 by ahassan          ###   ########.fr       */
+/*   Updated: 2023/02/05 17:49:02 by ahassan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void	ft_free_av(char **av)
+{
+	int	i;
+
+	i = 0;
+	while (av[i])
+		free(av[i++]);
+	free(av);
+}
 
 int	is_valid_num(char **av)
 {

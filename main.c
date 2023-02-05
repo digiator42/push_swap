@@ -6,25 +6,11 @@
 /*   By: ahassan <ahassan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/03 22:49:58 by ahassan           #+#    #+#             */
-/*   Updated: 2023/02/05 17:46:05 by ahassan          ###   ########.fr       */
+/*   Updated: 2023/02/05 17:48:08 by ahassan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-t_list	*ft_b_node(t_list *lst)
-{
-	t_list	*b_last;
-
-	if (!lst)
-		return (0);
-	while (lst->next)
-	{
-		b_last = lst;
-		lst = lst->next;
-	}
-	return (b_last);
-}
 
 void	fill_indexes(t_list **list)
 {

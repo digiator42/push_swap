@@ -6,7 +6,7 @@
 /*   By: ahassan <ahassan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/03 22:50:04 by ahassan           #+#    #+#             */
-/*   Updated: 2023/02/04 13:55:02 by ahassan          ###   ########.fr       */
+/*   Updated: 2023/02/05 17:48:55 by ahassan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,14 +53,18 @@ int	find_index(t_list *lst)
 	return (i);
 }
 
-void	ft_free_av(char **av)
+t_list	*ft_b_node(t_list *lst)
 {
-	int	i;
+	t_list	*b_last;
 
-	i = 0;
-	while (av[i])
-		free(av[i++]);
-	free(av);
+	if (!lst)
+		return (0);
+	while (lst->next)
+	{
+		b_last = lst;
+		lst = lst->next;
+	}
+	return (b_last);
 }
 
 void	ft_free_stack(t_list *head)
