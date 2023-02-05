@@ -1,4 +1,4 @@
-NAME = push_swap
+NAME = push_swap.a
 
 SRCS = main.c				\
        parsing.c			\
@@ -22,13 +22,13 @@ OBJS = $(SRCS:.c=.o)
 
 CC = cc
 
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -g3 -Wall -Wextra -Werror
 
 all : $(NAME)
 
 $(NAME): $(OBJS)
 	ar -rc $(NAME) $(OBJS)
-	$(CC) $(CFLAGS) $(NAME) -o $(NAME)
+	$(CC) $(CFLAGS) $(NAME) -o push_swap
 
 clean:
 	rm -f $(OBJS)

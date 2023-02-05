@@ -59,4 +59,7 @@ void				rr_stk(t_list **s, int stk);
 void				sort_three(t_list **stack_a);
 void				sort_four(t_list **stack_a, t_list **stack_b);
 void				sort_five(t_list **stack_a, t_list **stack_b);
+int					is_not_max(char **strs);
+int					is_not_dup(char **strs);
+int					is_valid_num(char **av);
 #endif

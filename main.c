@@ -69,6 +69,22 @@ int	add_stack(char **av)
 
 int	main(int ac, char **av)
 {
-	if (!parsing(ac, av))
-		ft_printf("\x1B[31mError\n");
+	static char	*str;
+	int			i;
+
+	if (ac <= 1)
+		return (-1);
+	i = 0;
+	while (++i < ac)
+		if (!ft_strcmp(av[i], "") || !is_space(av[i]))
+			return (ft_printf("\x1B[31mError/args\n"), 0);
+	i = 1;
+	while (av[i])
+		str = ft_strjoin(str, av[i++]);
+	av = ft_split(str, ' ');
+	free(str);
+	if (!is_valid_num(av) || !is_not_dup(av) || !is_not_max(av))
+		return (ft_free_av(av), (ft_printf("\x1B[31mError/duplicates\n"), 0));
+	add_stack(av);
+	return (1);
 }

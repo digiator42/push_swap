@@ -74,26 +74,3 @@ int	is_not_max(char **strs)
 			return (0);
 	return (1);
 }
-
-int	parsing(int ac, char **av)
-{
-	static char	*str;
-	int			i;
-
-	if (ac <= 1)
-		return (-1);
-	i = 0;
-	while (++i < ac)
-		if (!ft_strcmp(av[i], "") || !is_space(av[i]))
-			return (0);
-	i = 1;
-	while (av[i])
-		str = ft_strjoin(str, av[i++]);
-	av = ft_split(str, ' ');
-	free(str);
-	if (!is_valid_num(av) || !is_not_dup(av) || !is_not_max(av))
-		return (ft_free_av(av), 0);
-	if (add_stack(av))
-		return (1);
-	return (1);
-}
