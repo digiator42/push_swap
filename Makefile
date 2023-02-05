@@ -30,7 +30,7 @@ all : $(NAME)
 
 $(NAME): $(OBJS)
 	ar -rc $(NAME) $(OBJS)
-	$(CC) $(CFLAGS) $(NAME) -o push_swap
+	$(CC) $(CFLAGS) $(NAME) -o $(EXEC)
 
 clean:
 	rm -f $(OBJS)
