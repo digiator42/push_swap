@@ -6,7 +6,7 @@
 /*   By: ahassan <ahassan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/03 22:49:58 by ahassan           #+#    #+#             */
-/*   Updated: 2023/02/05 16:47:24 by ahassan          ###   ########.fr       */
+/*   Updated: 2023/02/05 17:27:49 by ahassan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ int	main(int ac, char **av)
 	int			i;
 
 	if (ac <= 1)
-		return (-1);
+		return (0);
 	i = 0;
 	while (++i < ac)
 		if (!ft_strcmp(av[i], "") || !is_space(av[i]))
@@ -85,5 +85,5 @@ int	main(int ac, char **av)
 	if (!is_valid_num(av) || !is_not_dup(av) || !is_not_max(av))
 		return (ft_free_av(av), ft_printf("\x1B[31mError\n"), 0);
 	add_stack(av);
-	return (1);
+	return (0);
 }
