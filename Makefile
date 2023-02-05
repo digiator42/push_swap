@@ -18,6 +18,8 @@ SRCS = main.c				\
 	   ft_printf/ft_printunsigned.c	\
 	   ft_printf/ft_putnbr.c	
 
+EXEC = push_swap
+
 OBJS = $(SRCS:.c=.o)
 
 CC = cc
@@ -34,6 +36,6 @@ clean:
 	rm -f $(OBJS)
 
 fclean: clean
-	rm -f $(NAME)
+	rm -f $(NAME) $(EXEC)
 
 re: fclean all

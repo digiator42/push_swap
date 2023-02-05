@@ -6,7 +6,7 @@
 /*   By: ahassan <ahassan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/03 22:50:10 by ahassan           #+#    #+#             */
-/*   Updated: 2023/02/04 13:53:23 by ahassan          ###   ########.fr       */
+/*   Updated: 2023/02/05 16:45:33 by ahassan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ typedef struct s_list
 	struct s_list	*next;
 }					t_list;
 
-int					add_stack(char **av);
+void				add_stack(char **av);
 int					is_space(char *str);
 int					ft_strcmp(char *s1, char *s2);
 void				sort_wise(t_list **stack_a, int len);
